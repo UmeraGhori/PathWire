@@ -36,18 +36,45 @@ A neural map is only useful if it can be audited, shared, and analyzed offline.
 * **The Utility:** By downloading the map as a structured JSON/SVG snapshot, engineers can maintain "Point-in-Time" records of a site's structure. This is critical for **SEO Compliance Audits**, **Migration Mapping**, and tracking architectural changes during large-scale site refactors.
 ---
 
+## IMPLEMENTATION
+
+* **Frontend:** Vue 3 (Composition API) - Reactive state management between Canvas & Panel.
+* **Engine:** D3.js - Force Simulation, Custom collision physics for high-density node clusters.
+* **Backend:** Node.js / Express - Cheerio, Non-blocking I/O for concurrent BFS link discovery.
+* **Security:** Multi-Tier Guard - Client-side Regex + Server-side URL constructor validation.
+
+---
 ## ARCHITECHTURE
+PathWire follows a decoupled, service-oriented architecture to ensure high maintainability and scalability between the crawling engine and the visualization layer.
+
 ```text
-src/
-├── services/           # Service Layer: Networking & Error Interceptors
-    ├── api/
-    ├── graphUtils/                
-├── components/         
-│   ├── ControlPanel/   # Domain Inputs, Depth Guards, & Credential Injection
-│   ├── FlowCanvas/     # D3.js Physics Engine & SVG Rendering
-│   └── LoadingOverlay/ # UX Feedback during Heuristic Analysis
-├── App.vue             # Central Orchestrator & State Management
-└── main.js             # Global Entry & Asset Injection
+PathWire/
+├── backend/                # Node.js / Express Crawling Engine
+│   ├── services/
+│   │   ├── crawlerService.js # Core BFS Algorithm & Semantic Scorer
+│   │   └── noiseReducer.js   # Frequency-Based Heuristic Logic
+│   ├── .env                # Server configurations (PORT, etc.)
+│   ├── server.js           # Express API Entry & Middleware
+│   └── package.json
+│
+├── frontend/               # Vue 3 (Vite) Reactive Visualizer
+│   ├── src/
+│   │   ├── api/            # Centralized API Service Layer
+│   │   │   └── api.js      # Axios Interceptors & Networking
+│   │   ├── components/     # UI Components
+│   │   │   ├── ControlPanel.vue   # Input Guard & State Control
+│   │   │   ├── FlowCanvas.vue     # D3.js Force-Simulation Engine
+│   │   │   ├── LoadingOverlay.vue # Progress & Heuristic Feedback
+│   │   │   └── NodeDetails.vue    # Rich Entity Metadata View
+│   │   ├── services/       
+│   │   │   └── graphUtils.js      # D3 Data Transformation Utilities
+│   │   ├── App.vue         # Main System Bus / State Orchestrator
+│   │   └── main.js         # Entry Point
+│   ├── .env                # VITE_API_URL Configuration
+│   ├── index.html
+│   └── vite.config.js
+│
+└── README.md               # Technical Case Study & Documentation
 ---
 
 ## 🗺️ High-Level System Data Flow
@@ -56,9 +83,17 @@ Below is the architectural flow of PathWire, demonstrating how raw URL inputs ar
 
 
 ## 📊 Live System Telemetry (Execution Logs)
+[20:45:01] 📡 SYSTEM: PathWire Engine v1.0.4 Initialized.
+[20:45:02] 🌐 TARGET: https://www.firecrawl.dev/ | Max Depth: 3
+[20:45:03] 🕷️ CRAWL: Level 0 started. Root discovered.
+[20:45:10] 🕷️ CRAWL: Level 1 complete. 26 unique endpoints found.
+[20:45:15] 🧠 ANALYSIS: Detected high-density path (/blog/).
+[20:45:15] 📦 LOGIC: Applying Node Aggregation for 10+ sub-links.
+[20:45:16] 🧠 HEURISTIC: Identified "Privacy Policy" as Global Nav Noise (Frequency > 80%).
+[20:45:17] ✂️ PRUNING: 42 redundant edges removed to optimize visualization.
+[20:45:18] ✅ SUCCESS: Refined graph dispatched to D3 layer.
+[20:45:25] 💾 EXPORT: User initiated download. State serialized to pathwire_map.json.
 
-To ensure **Requirement 5.3 (Sensible Feedback)**, the system provides real-time logs that trace the lifecycle of a crawl:
-```text 📡 SYSTEM: Initializing PathWire Engine v1.0.4 🌐 TARGET: https://www.firecrawl.dev/ | Requested Depth: 3 | Nodes: 194
 Crawling: https://status.firecrawl.dev/ at depth 0
 Crawling: https://status.firecrawl.dev/maintenance at depth 1
 Crawling: https://status.firecrawl.dev/incidents at depth 1
