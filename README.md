@@ -4,7 +4,7 @@ PathWire is an enterprise-grade web architecture decomposition tool. It leverage
 
 ---
 
-## 🧠 The Engineering Deep-Dive: Our "Brain" Logic
+## 🧠 The Engineering Deep-Dive: 
 
 What sets PathWire apart is not just the visualization, but the **Data Processing Pipeline** that happens between the crawl and the render.
 
