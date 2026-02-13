@@ -4,7 +4,7 @@ PathWire is an enterprise-grade web architecture decomposition tool. It leverage
 
 ---
 
-## 🧠 The Engineering Deep-Dive: Our "Brain" Logic
+## 🧠 The Engineering Deep-Dive: 
 
 What sets PathWire apart is not just the visualization, but the **Data Processing Pipeline** that happens between the crawl and the render.
 
@@ -44,6 +44,12 @@ A neural map is only useful if it can be audited, shared, and analyzed offline.
 * **Security:** Multi-Tier Guard - Client-side Regex + Server-side URL constructor validation.
 
 ---
+<p align="center">
+  <img src="/frontend/src/assets/Firecrawl-flow1.png" width="800" alt="firecrawl-flow1" />
+  <img src="/frontend/src/assets/Firecrawl-flow.png" width="45%" alt="firecrawl-flow" />
+</p>
+---
+
 ## ARCHITECHTURE
 PathWire follows a decoupled, service-oriented architecture to ensure high maintainability and scalability between the crawling engine and the visualization layer.
 
@@ -77,12 +83,12 @@ PathWire/
 └── README.md               # Technical Case Study & Documentation
 ---
 
-## 🗺️ High-Level System Data Flow
+🗺️ High-Level System Data Flow
 
 Below is the architectural flow of PathWire, demonstrating how raw URL inputs are transformed into refined neural maps.
 
 
-## 📊 Live System Telemetry (Execution Logs)
+📊 Live System Telemetry (Execution Logs)
 [20:45:01] 📡 SYSTEM: PathWire Engine v1.0.4 Initialized.
 [20:45:02] 🌐 TARGET: https://www.firecrawl.dev/ | Max Depth: 3
 [20:45:03] 🕷️ CRAWL: Level 0 started. Root discovered.
