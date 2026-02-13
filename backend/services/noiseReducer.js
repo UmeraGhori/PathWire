@@ -3,6 +3,7 @@ function identifyGlobalNav(pages) {
     const totalPages = pages.length;
 
     pages.forEach(page => {
+        
         // Requirement 3.2.c: Filter out links that point to the same page (Self-links)
         const uniqueLinks = new Set(page.links.filter(l => l !== page.url));
         uniqueLinks.forEach(link => {

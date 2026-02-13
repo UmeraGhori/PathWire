@@ -6,15 +6,13 @@ class CrawlerService {
     constructor(startUrl, maxDepth = 3, credentials = null) {
         this.startUrl = startUrl;
         this.maxDepth = maxDepth;
-        this.credentials = credentials; // Stores { username, password }
+        this.credentials = credentials; 
         this.visited = new Set();
         this.pages = [];
     }
 
-    /**
-     * CLEAN ARCHITECTURE: Header Interceptor
-     * Helper method to generate request headers, including optional Auth.
-     */
+    //    CLEAN ARCHITECTURE: Header Interceptor
+    //    Helper method to generate request headers, including optional Auth.
     getRequestConfig() {
         const config = {
             timeout: 10000,
