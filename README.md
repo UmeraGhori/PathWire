@@ -35,7 +35,16 @@ A neural map is only useful if it can be audited, shared, and analyzed offline.
 * **The Implementation:** We built a **Stateful Export Engine** that allows users to capture the entire refined architecture in a single click.
 * **The Utility:** By downloading the map as a structured JSON/SVG snapshot, engineers can maintain "Point-in-Time" records of a site's structure. This is critical for **SEO Compliance Audits**, **Migration Mapping**, and tracking architectural changes during large-scale site refactors.
 ---
+## 🚀 Local Installation
 
+1. **Backend:** - `cd backend && npm install`
+   - Create `.env` with `PORT=3000`
+   - `npm start`
+
+2. **Frontend:** - `cd frontend && npm install`
+   - Create `.env` with `VITE_API_URL=http://localhost:3000/api`
+   - `npm run dev`
+---
 ## IMPLEMENTATION
 
 * **Frontend:** Vue 3 (Composition API) - Reactive state management between Canvas & Panel.
