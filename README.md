@@ -83,12 +83,12 @@ PathWire/
 └── README.md               # Technical Case Study & Documentation
 ---
 
-## 🗺️ High-Level System Data Flow
+🗺️ High-Level System Data Flow
 
 Below is the architectural flow of PathWire, demonstrating how raw URL inputs are transformed into refined neural maps.
 
 
-## 📊 Live System Telemetry (Execution Logs)
+📊 Live System Telemetry (Execution Logs)
 [20:45:01] 📡 SYSTEM: PathWire Engine v1.0.4 Initialized.
 [20:45:02] 🌐 TARGET: https://www.firecrawl.dev/ | Max Depth: 3
 [20:45:03] 🕷️ CRAWL: Level 0 started. Root discovered.
