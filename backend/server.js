@@ -61,3 +61,5 @@ app.post('/api/crawl', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`🚀 PathWire Backend operational on port ${PORT}`);
 });
+
+module.exports = app;

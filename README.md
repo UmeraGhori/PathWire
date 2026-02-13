@@ -44,6 +44,7 @@ A neural map is only useful if it can be audited, shared, and analyzed offline.
 * **Security:** Multi-Tier Guard - Client-side Regex + Server-side URL constructor validation.
 
 ---
+
 <p align="center">
   <img src="/frontend/src/assets/Firecrawl-flow1.png" width="800" alt="firecrawl-flow1" />
   <img src="/frontend/src/assets/Firecrawl-flow.png" width="45%" alt="firecrawl-flow" />
