@@ -1,0 +1,67 @@
+/* * REASONING: Tailwind v4 uses CSS @import instead of @tailwind directives.
+ * This is the primary requirement to fix the PostCSS plugin error you encountered.
+ */
+@import "tailwindcss";
+
+/* * REASONING: In Tailwind v4, theme customization is done directly in CSS 
+ * using the @theme block instead of a separate tailwind.config.js file.
+ */
+@theme {
+  --color-indigo-50: #f5f7ff;
+  --color-indigo-600: #4f46e5;
+  --color-indigo-700: #4338ca;
+  
+  /* Adding custom transitions for a 'high-level' feel */
+  --animate-fade-in: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* * REASONING: Global resets to ensure the UI feels modern, intuitive, 
+ * and easy to scan.
+ */
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-slate-50 text-slate-900;
+  }
+}
+
+/* * REASONING: Custom scrollbar styling for the sidebar to maintain 
+ * a clean and minimal interface.
+ */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+}
+
+/* * REASONING: Specific styles for D3.js nodes to ensure visual hierarchy 
+ * and clarity in the user flow representation.
+ */
+.node-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.node-card:hover {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04));
+}
